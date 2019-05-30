@@ -40,10 +40,10 @@ def action_wrapper(hermes, intentMessage, conf):
 
     try:
         command="--????--"
-        command="Le code postal est "+intentMessage.slots.SelectedStation.first().value
+        command="Le code postal est "+intentMessage.slots.FrPostalCode.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
-        ErrMess="snips-FrPostalCode - command KO - SelectedStation - command="+command
+        ErrMess="snips-FrOrganizalInfo - command KO - FrPostalCode - command="+command
         hermes.publish_end_session(intentMessage.session_id,ErrMess)
 
 if __name__ == "__main__":
