@@ -43,7 +43,7 @@ def action_wrapper(hermes, intentMessage, conf):
         command="Le code postal est "+intentMessage.slots.FrPostalCode.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
-        ErrMess="snips-FrOrganizalInfo - command KO - FrPostalCode - command="+command
+        ErrMess="snips-FrOrganizationInfo - command KO - FrPostalCode - command="+command
         hermes.publish_end_session(intentMessage.session_id,ErrMess)
 
 if __name__ == "__main__":
