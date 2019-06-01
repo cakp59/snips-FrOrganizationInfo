@@ -39,16 +39,16 @@ def action_wrapper(hermes, intentMessage, conf):
     """
 
     try:
-        command2=intentMessage.slots.FrCantonRegion.first().value
+        command2=intentMessage.slots.FrCanton2Region.first().value
         command="La région du canton de "+command2[3:len(command2)]
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
-        ErrMess="snips-FrOrganizationInfo - command KO - FrCantonRegion - command="+command
+        ErrMess="snips-FrOrganizationInfo - command KO - FrCanton2Region - command="+command
         hermes.publish_end_session(intentMessage.session_id,ErrMess)
 
 if __name__ == "__main__":
     mqtt_opts = MqttOptions()
     with Hermes(mqtt_options=mqtt_opts) as h:
-        h.subscribe_intent("cakp59:FrCantonRegion", subscribe_intent_callback) \
+        h.subscribe_intent("cakp59:FrCanton2Region", subscribe_intent_callback) \
          .start()
         
