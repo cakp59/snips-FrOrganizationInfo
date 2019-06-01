@@ -39,8 +39,8 @@ def action_wrapper(hermes, intentMessage, conf):
     """
 
     try:
-        command="--????--"
-        command="La région du canton est "+intentMessage.slots.FrCantonRegion.first().value
+        command2=intentMessage.slots.FrCantonRegion.first().value
+        command="La région du canton de "+command2[3:len(command2)]
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
         ErrMess="snips-FrOrganizationInfo - command KO - FrCantonRegion - command="+command
