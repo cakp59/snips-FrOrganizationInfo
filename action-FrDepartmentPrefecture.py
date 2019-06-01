@@ -40,7 +40,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     try:
         command="--????--"
-        command="La préfecture du département "+intentMessage.slots.FrDepartmentPrefecture.name+" est la ville de "+intentMessage.slots.FrDepartmentPrefecture.first().value
+        command="La préfecture du département est la ville de "+intentMessage.slots.FrDepartmentPrefecture.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
         ErrMess="snips-FrOrganizationInfo - command KO - FrDepartmentPrefecture - command="+command
