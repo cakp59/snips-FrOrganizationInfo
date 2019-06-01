@@ -40,15 +40,15 @@ def action_wrapper(hermes, intentMessage, conf):
 
     try:
         command="--????--"
-        command="Le code postal est "+intentMessage.slots.FrTownPostalCode.first().value
+        command="Le code postal est "+intentMessage.slots.FrTown2PostalCode.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
-        ErrMess="snips-FrOrganizationInfo - command KO - FrTownPostalCode - command="+command
+        ErrMess="snips-FrOrganizationInfo - command KO - FrTown2PostalCode - command="+command
         hermes.publish_end_session(intentMessage.session_id,ErrMess)
 
 if __name__ == "__main__":
     mqtt_opts = MqttOptions()
     with Hermes(mqtt_options=mqtt_opts) as h:
-        h.subscribe_intent("cakp59:FrTownPostalCode", subscribe_intent_callback) \
+        h.subscribe_intent("cakp59:FrTown2PostalCode", subscribe_intent_callback) \
          .start()
         
