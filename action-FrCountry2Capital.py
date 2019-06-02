@@ -40,15 +40,15 @@ def action_wrapper(hermes, intentMessage, conf):
 
     try:
         command="--????--"
-        command="La capitale est "+intentMessage.slots.Country2Capital.first().value
+        command="La capitale est "+intentMessage.slots.FrCountry2Capital.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
-        ErrMess="snips-FrOrganizationInfo - command KO - Country2Capital - command="+command
+        ErrMess="snips-FrOrganizationInfo - command KO - FrCountry2Capital - command="+command
         hermes.publish_end_session(intentMessage.session_id,ErrMess)
 
 if __name__ == "__main__":
     mqtt_opts = MqttOptions()
     with Hermes(mqtt_options=mqtt_opts) as h:
-        h.subscribe_intent("cakp59:Country2Capital", subscribe_intent_callback) \
+        h.subscribe_intent("cakp59:FrCountry2Capital", subscribe_intent_callback) \
          .start()
         
