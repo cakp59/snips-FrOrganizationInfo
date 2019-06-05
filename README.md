@@ -2,4 +2,4 @@
 
 
 # snips-InformationSearch
-Search informations about French country, town, ... organization
+Search informations about French country, city, ... organization
