@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
     """
 
     try:
-        command2=intentMessage.slots.TownPostalCode.first().value
+        command2=intentMessage.slots.FrCanton2Region.first().value
         command="La région du canton de "+command2[3:len(command2)]
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
