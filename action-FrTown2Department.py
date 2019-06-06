@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
     """
 
     try:
-        command="--????--"
+        command=""
         command="Le département de la ville est "+intentMessage.slots.FrTown2Department.first().value
         hermes.publish_end_session(intentMessage.session_id,command)
     except:
